@@ -1,9 +1,9 @@
 import express from "express";
+import { Server } from "socket.io";
 import http from "http";
-import WebSocket from "ws";
 
 const app = express();
-const PORT = 3001;
+const PORT = 3000;
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
 app.use("/public", express.static(__dirname + "/public"));
@@ -14,11 +14,12 @@ app.get("/*", (req, res) => {
   res.redirect("/");
 });
 
-const server = http.createServer(app);
+const httpServer = http.createServer(app);
+const wsServer = new Server(httpServer);
+
+/*
 const wss = new WebSocket.Server({ server });
-
 const sockets = [];
-
 wss.on("connection", (socket) => {
   sockets.push(socket);
   socket["nickname"] = "Anon";
@@ -36,7 +37,8 @@ wss.on("connection", (socket) => {
     }
   });
 });
+*/
 
-server.listen(PORT, () => {
+wsServer.listen(PORT, () => {
   console.log(`Listening on http://localhost:${PORT}`);
 });
