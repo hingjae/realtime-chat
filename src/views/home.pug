@@ -8,14 +8,20 @@ html(lang="en")
         title Zoom
     body 
         header
-            h1 hello world
+            h1 Real Time Chat
         main 
-            form#nick
-                input(type="text", placeholder="choose a nickname", required)
-                button Save
-            ul 
-            form#message
-                input(type="text", placeholder="write a message", required)
-                button Send
-            
+            #welcome 
+                form
+                    input(placeholder="room name", type="text", required)
+                    button Enter Room
+            #room  
+                h3 
+                ul 
+                form#name
+                    input(placeholder="nickname" type="text", required)
+                    button Save 
+                form#msg
+                    input(placeholder="message" type="text", required)
+                    button Send
+        script(src="/socket.io/socket.io.js")
         script(src="/public/js/app.js") 
