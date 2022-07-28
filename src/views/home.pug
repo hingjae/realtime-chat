@@ -4,24 +4,23 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
         title Zoom
+        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
     body 
         header
             h1 Real Time Chat
         main 
             #welcome 
                 form
-                    input(placeholder="room name", type="text", required)
+                    input#roomName(placeholder="room name", type="text", required)
+                    input#name(placeholder="nickname", type="text", required)
                     button Enter Room
-            #room  
+            #room 
                 h3 
                 ul 
-                form#name
-                    input(placeholder="nickname" type="text", required)
-                    button Save 
                 form#msg
-                    input(placeholder="message" type="text", required)
+                    input(placeholder="message", type="text", required)
                     button Send
+
         script(src="/socket.io/socket.io.js")
         script(src="/public/js/app.js") 
