@@ -1,3 +1,3 @@
-# Zoom
+# realtime-chat
 
-Zoom Clone using NodeJS, WebRTC and Websockets.
+realtime-chat using NodeJS and socketIO.
